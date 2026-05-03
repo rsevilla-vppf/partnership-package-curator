@@ -9,9 +9,9 @@ const rolesData = [
         id: 'resource', name: 'Resource Sponsor', category: 'Core Operations',
         description: 'Primary operational funding for the event.',
         tiers: {
-            1: ['Primary operational funding: ₱10,000 – ₱20,000'],
-            2: ['Primary operational funding: ₱20,001 – ₱50,000'],
-            3: ['Primary operational funding: ₱50,001 – ₱200,000']
+            1: ['Primary operational funding: ₱1,000 – ₱10,000'],
+            2: ['Primary operational funding: ₱10,001 – ₱50,000'],
+            3: ['Primary operational funding: ₱50,001 – ₱100,000']
         }
     },
     {
@@ -90,18 +90,18 @@ const rolesData = [
         id: 'media', name: 'Media Sponsor', category: 'Reach & Audience',
         description: 'Boost event awareness through cross-posting, articles, and coverage.',
         tiers: {
-            1: ['2 Social media cross-posts/blasts', '1 Dedicated event photographer'],
-            2: ['4 Social media cross-posts', '1 Pre-event feature article', '3 Dedicated event photographers'],
-            3: ['10+ Social media cross-posts', '3 Pre-event feature articles', 'Full Media Team', 'Pro live-stream & Aftermovie']
+            1: ['2 Dedicated event photographers', '1 Post-event documentation publication', '1 Pre-event feature article'],
+            2: ['3 Dedicated event photographers and videographers', '1 Post-event documentation publication', '1 Pre-event feature article'],
+            3: ['4-5 Dedicated event photographers and videographers', '1 Post-event documentation publication', '1 Pre-event feature articles']
         }
     },
     {
         id: 'community', name: 'Community Sponsor', category: 'Reach & Audience',
         description: 'Mobilize tech groups, invite your members, and guarantee attendance.',
         tiers: {
-            1: ['2 Social media cross-posts/blasts', 'Up to 15 mobilized attendees from your community'],
-            2: ['4 Social media cross-posts', 'Up to 30 mobilized attendees from your community', '1 Formed project team to compete'],
-            3: ['10+ Social media cross-posts', 'Up to 50 mobilized attendees from your community', '3 Formed project teams to compete']
+            1: ["Sharing all of the event's publication materials on partner's platform", 'Up to 3-10 mobilized attendees from your community'],
+            2: ["Sharing all of the event's publication materials on partner's platform", 'Up to 10-20 mobilized attendees', '1 Formed project team to compete in competition (if applicable)'],
+            3: ["Sharing all of the event's publication materials on partner's platform", '20+ mobilized attendees', '3 Formed project teams to compete in competition (if applicable)']
         }
     },
     {
@@ -125,29 +125,22 @@ const tiers: Record<number, string> = {
 const autoBenefits: Record<number, string[]> = {
     0: [],
     1: [
-        "Small logo on website & tarp",
-        '"Supported by [Sponsor]" Co-Branding',
-        "1 VIP pass",
-        "Standard digital & physical certificate",
-        "Standard gift box with DEVCON branded items"
+        "Small logo in all publication materials",
+        "Standard physical certificate",
+        '"Supported by [Sponsor]" Co-Branding'
     ],
     2: [
-        "Medium logo on website, tarp & slides",
+        "Medium logo in all publication materials",
+        "Jacketed physical certificate",
         '"Powered by [Sponsor]" Co-Branding',
-        "3 VIP passes",
-        "Premium framed certificate",
-        "Pre-assigned booth space on the event floor",
-        "10-minute open floor slot",
-        "Deluxe gift box with premium DEVCON merchandise and partner inclusions"
+        "5 Minute Speaking Slot"
     ],
     3: [
-        "Premium large logo on all collaterals & livestream",
-        '"Presented by [Sponsor]" Co-Branding',
-        "5 VIP passes",
-        "Premium trophy awarded on stage",
-        "Partner-selected booth space (prime location) on the event floor",
-        "20-minute open floor slot",
-        "Executive gift box with exclusive DEVCON collectibles and curated partner items"
+        "Large logo in all publication materials",
+        "Framed physical certificate",
+        '"Co-Presented by [Sponsor]" Co-Branding',
+        "10 Minute Speaking Slot",
+        "Partner-Selected Booth Space"
     ]
 };
 
@@ -164,9 +157,11 @@ const perkCategories = [
         standard: [
             { name: 'Talent Pipeline Access', desc: "Full access to opt-in resume database, demographic reports, and up to 3 job postings on DEVCON's channels." },
             { name: 'Recruitment Mailing', desc: 'Feature career opportunities in 1 dedicated pre-event email blast to all registered attendees.' },
-            { name: 'Custom Pre-Screening Question', desc: 'Add one custom technical or culture-fit question to the event registration form.' }
+            { name: 'Custom Pre-Screening Question', desc: 'Add one custom technical or culture-fit question to the event registration form.' },
+            { name: 'Sponsored Hiring Board', desc: 'A physical or digital job board prominently placed at the event venue — exclusively displaying your open roles and branding throughout the event duration, giving every attendee repeated exposure to your hiring opportunities.' }
         ],
         premium: [
+            { name: 'Exclusive Hackathon Problem Statement', desc: 'You are the sole sponsor granted the right to submit one official hackathon problem statement — participants who choose your challenge build solutions directly addressing your business needs, and you gain first access to their outputs, code, and teams.' },
             { name: 'Fast-Track Interview Sessions', desc: 'Reserved time slots and dedicated spaces to conduct structured on-the-spot initial interviews with attendees during the event.' },
             { name: 'Right of First Refusal', desc: '30-day exclusive window to negotiate hiring or incubating the Grand Champion team before they engage with any other sponsor or recruiter.' }
         ]
@@ -174,37 +169,29 @@ const perkCategories = [
     {
         name: 'Strategic Connections & B2B Ecosystem',
         standard: [
-            { name: 'Early Innovation Pipeline', desc: 'Receive exclusive early access to the pitch materials and contact details of hackathon teams.' },
-            { name: 'Official LinkedIn Ecosystem Endorsement', desc: 'An official LinkedIn post publicly endorsing your contribution to the Philippine tech ecosystem.' },
-            { name: 'Partner Handover Brief Inclusion', desc: "Include a one-page B2B brochure, executive summary, or exclusive partner offer directly inside DEVCON's official Pre-Event Handover Brief." }
+            { name: 'Early Innovation Pipeline', desc: 'Receive exclusive early access to the pitch materials and contact details of hackathon teams for a head start on incubating, investing in, or partnering with emerging founders.' },
+            { name: 'Official LinkedIn Ecosystem Endorsement', desc: 'DEVCON Laguna publishes an official, detailed LinkedIn post publicly endorsing your contribution to the Philippine tech ecosystem and cementing your CSR credibility online.' },
+            { name: 'Partner Handover Brief Inclusion', desc: "Include a one-page B2B brochure, executive summary, or exclusive partner-to-partner offer directly inside DEVCON's official Pre-Event Handover Brief." },
+            { name: 'Branded Venue Display', desc: "Place your company's physical marketing materials — banners, standees, posters, or table displays — at designated high-traffic areas within the venue. Your brand is visibly present in every networking conversation, hallway interaction, and breakout moment throughout the event." }
         ],
         premium: [
-            { name: 'Partner Ecosystem Directory', desc: 'Receive a private, consolidated contact directory containing opt-in business contacts for all participating sponsors and VIPs.' },
-            { name: 'Dedicated Community Channel', desc: 'Receive a permanent, dedicated channel in the official DEVCON Laguna Discord/community platform.' }
+            { name: 'Dedicated Community Channel', desc: 'Receive a permanent, dedicated channel (or "Verified Partner" role) in the official DEVCON Laguna Discord/community platform, giving your team a direct, ongoing line to share updates and chat with members year-round.' },
+            { name: 'Partner Ecosystem Directory', desc: 'Upon event conclusion, receive a private, consolidated contact directory containing opt-in business contacts for all participating sponsors, partners, speakers, and VIPs.' },
+            { name: 'Signature Venue Takeover', desc: 'Transform a defined zone of the event venue into a fully branded partner space — your team brings your own décor, installations, product displays, or experiential setup and DEVCON reserves and coordinates the space exclusively for you. Every attendee, speaker, and VIP walks through your environment. Granted to a single Major+ sponsor only.' }
         ]
     },
     {
         name: 'Brand & Visibility',
         standard: [
-            { name: 'Sponsored Content Series', desc: 'DEVCON-produced multi-post branded content campaign (reels, etc.) published across our channels leading up to and during the event.' },
-            { name: 'Sponsor Post Amplification', desc: 'Submit your own content asset and DEVCON shares it directly on our official channels — you control the message.' },
-            { name: 'Attendee Challenge', desc: 'DEVCON hosts a live technical challenge during the event on behalf of the sponsor — sponsor defines the problem and prizes.' }
+            { name: 'Sponsored Content Series', desc: 'DEVCON-produced multi-post branded content campaign (reels, behind-the-scenes, countdown spotlights) published across our channels leading up to and during the event.' },
+            { name: 'Sponsor Post Amplification', desc: 'Submit your own content asset (graphic, video, or announcement) and DEVCON shares it directly on our official channels — you control the message, we provide the reach.' },
+            { name: 'Attendee Challenge', desc: 'DEVCON hosts a live challenge/game during the event on behalf of the sponsor — sponsor defines the problem, mechanics, criteria, and prizes. Participants compete in real time and winners are awarded by the sponsor on stage.' },
+            { name: 'Branded Stage Ad Slot', desc: 'Submit your own video advertisement and DEVCON plays it on the main stage screen during scheduled breaks and waiting periods — putting your brand in front of the full seated audience at the highest-attention moments of the event.' }
         ],
         premium: [
-            { name: 'Podcast Feature', desc: 'Your representative joins a DEVCON podcast episode as a guest expert for an in-depth interview.' },
-            { name: 'Sponsor Film Challenge', desc: 'DEVCON organizes a video competition on behalf of the sponsor.' }
-        ]
-    },
-    {
-        name: 'Partner Intelligence & Insights',
-        standard: [
-            { name: 'Attendee Demographic Report', desc: 'A post-event breakdown of attendee profiles compiled by DEVCON.' },
-            { name: 'Brand Perception Survey', desc: 'A structured post-event survey sent to all registered attendees measuring brand awareness, sentiment, etc.' },
-            { name: 'Custom Live-Event Poll', desc: 'DEVCON integrates up to 2 targeted polling questions into our interactive main-stage segments or official event app.' }
-        ],
-        premium: [
-            { name: 'CSR & ROI Impact Report', desc: 'A professionally produced post-event report documenting contribution, community reach, and measurable social return.' },
-            { name: 'Returning Partner Recognition', desc: 'A dedicated feature recognizing your sustained commitment across multiple DEVCON events.' }
+            { name: 'Sponsor Film Challenge', desc: 'DEVCON organizes a video competition on behalf of the sponsor — participants submit short-form or documentary-style entries that highlight the sponsor\'s brand. The community votes and the sponsor selects the winner from the top entries. All submitted video entries are fully owned by the sponsor.' },
+            { name: 'Podcast Feature', desc: 'Your representative joins a DEVCON podcast episode as a guest expert for an in-depth interview, plus a branded ad mention aired across the episode\'s full distribution run — extending your reach well beyond event day.' },
+            { name: 'Exclusive Brand Documentary', desc: 'DEVCON\'s media team produces a short-form branded documentary — filmed on event day — that tells your company\'s story through the lens of the community you supported. Distributed across DEVCON\'s channels and delivered to you as a fully owned content asset for use in your own marketing indefinitely. Granted to a single Major+ sponsor only.' }
         ]
     }
 ];
@@ -456,7 +443,7 @@ export default function Home() {
                     </div>
 
                     {/* Selected Perks Grid */}
-                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
+                    <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '20px' }}>
                         {categoryStats.filter(c => c.total > 0).map(catStats => {
                             const category = perkCategories.find(c => c.name === catStats.name)!;
                             // Get selected perks in this category
@@ -792,7 +779,7 @@ export default function Home() {
                                     <strong>Rules:</strong> Standard Perks can be flexibly assigned across your chosen categories up to your tier limit. Premium perks MUST be picked from your active categories.
                                 </p>
 
-                                    <div className="grid grid-cols-1 xl:grid-cols-2 gap-8 md:pl-11">
+                                    <div className="grid grid-cols-1 gap-8 md:pl-11">
                                         {perkCategories.map((category, idx) => {
                                         const catStats = categoryStats.find(c => c.name === category.name)!;
                                         const cIsActive = catStats.total > 0;
