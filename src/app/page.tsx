@@ -126,21 +126,23 @@ const autoBenefits: Record<number, string[]> = {
     0: [],
     1: [
         "Small logo in all publication materials",
-        "Standard physical certificate",
-        '"Supported by [Sponsor]" Co-Branding'
+        "Standard Physical Certificate",
+        '"Supported By..."',
+        "Long table space on the event floor"
     ],
     2: [
         "Medium logo in all publication materials",
-        "Jacketed physical certificate",
-        '"Powered by [Sponsor]" Co-Branding',
-        "5 Minute Speaking Slot"
+        "Jacketed Physical Certificate",
+        '"Powered By..."',
+        "5 Minute Speaking Slot",
+        "Pre-assigned booth space on the event floor"
     ],
     3: [
         "Large logo in all publication materials",
-        "Framed physical certificate",
-        '"Co-Presented by [Sponsor]" Co-Branding',
+        "Framed Physical Certificate",
+        '"Co-Presented By..."',
         "10 Minute Speaking Slot",
-        "Partner-Selected Booth Space"
+        "Partner-selected booth space on the event floor"
     ]
 };
 
@@ -167,7 +169,7 @@ const perkCategories = [
         ]
     },
     {
-        name: 'Strategic Connections & B2B Ecosystem',
+        name: 'Strategic Connections',
         standard: [
             { name: 'Early Innovation Pipeline', desc: 'Receive exclusive early access to the pitch materials and contact details of hackathon teams for a head start on incubating, investing in, or partnering with emerging founders.' },
             { name: 'Official LinkedIn Ecosystem Endorsement', desc: 'DEVCON Laguna publishes an official, detailed LinkedIn post publicly endorsing your contribution to the Philippine tech ecosystem and cementing your CSR credibility online.' },
